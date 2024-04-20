@@ -9,7 +9,13 @@ const flightsSchema = new mongoose.Schema({
     enum: ['AUS', 'DFW', 'DEN', 'LAX', 'SAN']
   },
   flightNo: { type: Number, min: 10, max: 9999 },
-  departs: Date,
+  departs:  {
+    type: Date,
+    default: function() {
+      const today = new Date();
+      return new Date().setFullYear(today.getFullYear() + 1);
+    }
+  },
 },);
 
 // Compile the schema into a model and export it
