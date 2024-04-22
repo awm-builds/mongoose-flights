@@ -31,12 +31,13 @@
     </div>
     <br>
     <div>
-      <a href="/flights/:id/tickets/new" <%- title === 'Add tickets' ? 'class="active"' : '' %>>New Ticket</a>
+      <a href="/flights/<%= flight._id %>/tickets/new" <%- title === 'Add Tickets' ? 'class="active"' : '' %>>Add Tickets</a>
     </div>
     <br>
   </form>
 </section>
 
+<section>
 <% if (flight.destinations.length) { %>
   <table>
     <thead>
@@ -56,21 +57,6 @@
     </tbody>
   </table>
 <% } %>
+</section>
 
 <%- include('../partials/footer') %>
-
-<!-- <table>
-  <tbody>
-  <% tickets.forEach(function(t) { %>
-    <tr>
-      <td><%= t.seat %></td>
-      <td><%= t.price %></td>
-      <td><%= t.flight %></td>
-    </tr>
-  <% }); %>
-  <tr>
-    <td colspan="2"></td>
-  </tr>
-</tbody>
-</table> -->
-<!-- Add a row to display the avg AFTER the forEach iteration  -->
