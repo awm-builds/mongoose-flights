@@ -6,16 +6,18 @@ module.exports = {
   create
 };
 
-function newTicket(req, res) {
-  res.render('tickets/new', { title: 'Add Tickets', errorMsg: '' });
+async function newTicket(req, res) {
+  const flight = await Flight.findById(req.params.id);
+  res.render('tickets/new', { title: 'Add Tickets', errorMsg: '', flight });
+
 }
 
 async function create(req, res) {
   const flight = await Flight.findById(req.params.id);
   req.body.flight = req.params.id;
-  tickets.push(req.body);
+  const ticket = await Ticket.create(req.body);
   try {
-        await flight.save();
+        await ticket.save();
     } catch (err) {
         console.log(err);
     }

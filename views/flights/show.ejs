@@ -33,6 +33,13 @@
     <div>
       <a href="/flights/<%= flight._id %>/tickets/new" <%- title === 'Add Tickets' ? 'class="active"' : '' %>>Add Tickets</a>
     </div>
+    <% tickets.forEach(function(t) { %>
+        <div>
+          <!-- .toLocaleDateString() provides a more friendly date format -->
+          <p><%= t.seat %></p>
+          <p><%= t.price %></p>
+        </div>
+      <% }); %>
     <br>
   </form>
 </section>
@@ -47,13 +54,6 @@
       </tr>
     </thead>
     <tbody>
-      <% flight.destinations.forEach(function(d) { %>
-        <tr>
-          <!-- .toLocaleDateString() provides a more friendly date format -->
-          <td><%= d.airport %></td>
-          <td><%= d.arrival %></td>
-        </tr>
-      <% }); %>
     </tbody>
   </table>
 <% } %>
