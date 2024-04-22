@@ -51,5 +51,20 @@
     </tbody>
   </table>
 <% } %>
+<table>
+  <tbody>
+  <% tickets.forEach(function(t) { %>
+    <tr>
+      <td><%= t.seat %></td>
+      <td><%= t.price %></td>
+      <td><%= t.flight %></td>
+    </tr>
+  <% }); %>
+  <!-- Add a row to display the avg AFTER the forEach iteration  -->
+  <tr>
+    <td colspan="2"></td>
+  </tr>
+</tbody>
+</table>
 
 <%- include('../partials/footer') %>
