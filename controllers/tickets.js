@@ -7,13 +7,14 @@ module.exports = {
 };
 
 function newTicket(req, res) {
-  res.render('flights/new', { title: 'Add Flight', errorMsg: '' });
+  res.render('tickets/new', { title: 'Add Tickets', errorMsg: '' });
 }
 
 async function create(req, res) {
-    const flight = await Flight.findById(req.params.id);
-    flight.destinations.push(req.body);
-    try {
+  const flight = await Flight.findById(req.params.id);
+  req.body.flight = req.params.id;
+  tickets.push(req.body);
+  try {
         await flight.save();
     } catch (err) {
         console.log(err);
