@@ -29,6 +29,11 @@
       <input type="datetime-local" name="arrives">
       <input type="submit" value="Add Date">
     </div>
+    <br>
+    <div>
+      <a href="/flights/tickets/new" <%- title === 'Add tickets' ? 'class="active"' : '' %>>ADD Tickets</a>
+    </div>
+    <br>
   </form>
 </section>
 
@@ -51,7 +56,10 @@
     </tbody>
   </table>
 <% } %>
-<table>
+
+<%- include('../partials/footer') %>
+
+<!-- <table>
   <tbody>
   <% tickets.forEach(function(t) { %>
     <tr>
@@ -60,11 +68,9 @@
       <td><%= t.flight %></td>
     </tr>
   <% }); %>
-  <!-- Add a row to display the avg AFTER the forEach iteration  -->
   <tr>
     <td colspan="2"></td>
   </tr>
 </tbody>
-</table>
-
-<%- include('../partials/footer') %>
+</table> -->
+<!-- Add a row to display the avg AFTER the forEach iteration  -->
